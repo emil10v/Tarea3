@@ -17,12 +17,9 @@ public class Comentario {
 	}
 	
 	public String toString() {
-		String res = email + "/" + "ip: " + ip + "\n";
+		String res = fechaCreacion + " / " + email + " / " + "ip: " + ip + "\n";
 		res+= texto + "\n";
 		return res;
-	}
-	public LocalDateTime getFechaCreacion() {
-		return fechaCreacion;
 	}
 	
 }
