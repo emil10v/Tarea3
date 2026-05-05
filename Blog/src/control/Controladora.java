@@ -7,8 +7,7 @@ import logica.Blog;
 
 public class Controladora {
 	private Map<Integer, Blog> blogs;
-	
-	private void revisarBlogExiste(int codigoBlog) throws Exception {
+	public void revisarBlogExiste(int codigoBlog) throws Exception {
 		if (!blogs.containsKey(codigoBlog))
 			throw new Exception("Código de Blog no existe.");
 	}
@@ -31,11 +30,14 @@ public class Controladora {
 	    agregarComentario(2, 4, "davidvilla@gmail.com", "403.193.0.2", "Me quedaron como carbón");
 	}
 	
-	public Controladora() throws Exception {
-		blogs = new TreeMap<Integer, Blog>();
-		agregarBlog1();
-		agregarBlog2();
-				
+	public Controladora() {
+	    blogs = new TreeMap<Integer, Blog>();
+	    try {
+	        agregarBlog1();
+	        agregarBlog2();
+	    } catch (Exception e) {
+	        System.out.println("Error: " + e.getMessage());
+	    }
 	}
 	public void crearBlog(String nombre, String descripcion) {
 		Blog b = new Blog(nombre, descripcion);
